@@ -99,7 +99,7 @@ export default function WeatherApp() {
           </button> */}
           {error && <div className="text-red-500 absolute top-16">{error}</div>}
           {weather && (
-            <div className="bg-white bg-opacity-75 h-city w-city flex justify-center items-center rounded-[48px] relative">
+            <div className="bg-white bg-opacity-75 h-city w-city flex justify-center items-center rounded-[48px] relative backdrop-blur-3xl">
               <div> </div>
               <div className="text-black font-manrope font-extrabold   bg-custom-gradient bg-clip-text text-transparent absolute text-[48px] top-cityTop left-cityLeft">
                 {weather.name}
