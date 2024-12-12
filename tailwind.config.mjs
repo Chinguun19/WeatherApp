@@ -11,7 +11,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         nightColor: "#0F141E",
-        weather: "#F3F4F6"
+        weather: "#F3F4F6",
+        night: "#111827BF",
+        purple: "#777CCE"
     
       },
       height: {
