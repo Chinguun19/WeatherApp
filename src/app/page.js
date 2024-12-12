@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import 'typeface-manrope';
 
 export default function WeatherApp() {
   const [city, setCity] = useState("");
@@ -80,15 +81,15 @@ export default function WeatherApp() {
   };
 
   return (
-    <div className="w-full h-screen z-0 bg-black flex overflow-x-hidden justify-center overflow-y-hidden flex">
+    <div className="w-full h-screen z-0 bg-black  overflow-x-hidden justify-center overflow-y-hidden flex">
       <div className="justify-center items-center flex">
-        <div className="rounded-lg bg-weather w-night-800 h-night-1200 top-40 left-36 z-10 flex justify-center items-center ">
+        <div className=" bg-weather w-[800px] h-[1200px] top-40 left-36 z-10 flex justify-center items-center rounded-tr-[50px] rounded-tl-[50px] ">
           <input
             onChange={(e) => setCity(e.target.value)}
             value={city}
             onKeyDown={handleKeyDown}
             placeholder="Search"
-            className="absolute z-10 h-input w-input left-input Left top-7 rounded-3xl box-shadow: 0px 12px 24px 0px #0000000F font-xl text-black text-3xl focus:outline-none"
+            className="absolute z-10 h-[80px] w-[567px] left-input Left top-7 rounded-3xl box-shadow: 0px 12px 24px 0px #0000000F font-xl text-black text-3xl focus:outline-none"
           />
           {/* <button
             onClick={fetchWeather}
@@ -98,23 +99,27 @@ export default function WeatherApp() {
           </button> */}
           {error && <div className="text-red-500 absolute top-16">{error}</div>}
           {weather && (
-            <div className="bg-white bg-opacity-75 h-city w-city flex justify-center items-center rounded-xl relative">
-              <div className="text-black bg-custom-gradient bg-clip-text text-transparent absolute font-bold text-city top-cityTop left-cityLeft">
+            <div className="bg-white bg-opacity-75 h-city w-city flex justify-center items-center rounded-[48px] relative">
+              <div> </div>
+              <div className="text-black font-manrope font-extrabold   bg-custom-gradient bg-clip-text text-transparent absolute text-[48px] top-cityTop left-cityLeft">
                 {weather.name}
               </div>
-              <h1 className="text-9xl absolute font-bold bottom-temp left-10 bg-gradient-to-r from-slate-400 via-slate-800 to-slate-900 bg-clip-text text-transparent text-black">
+              <h1 className="font-manrope font-extrabold text-[144px] absolute  bottom-temp left-10 bg-gradient-to-r from-slate-400 via-slate-800 to-slate-900 bg-clip-text text-transparent text-black">
                 {Math.round(weather.main.temp)}°
               </h1>
-              <div className="text-mood font-bold text-moods bottom-moodBottom left-moodLeft absolute">
+              <div className="text-mood font-extrabold text-[24px] font-manrope bottom-moodBottom left-moodLeft absolute">
                 {weather.weather[0].main}
               </div>
               <img
                 className="absolute w-64 h-64 bottom-image-bottom"
                 src={getWeatherImage(weather.weather[0].main)}></img>
+                <img className="absolute w-[261px] h-[262px] opacity-[50%] bottom-image-bottom" src="shadow.png">
+              
+                </img>
             </div>
           )}
         </div>
-        <div className="rounded-lg bg-nightColor h-night-1200 w-night-800 right-36 top-40 my-28 z-10 top-40 left-36 z-10 flex justify-center items-center ">
+        <div className="rounded-lg bg-nightColor h-night-1200 w-night-800 right-36 top-40 my-28 left-36 z-10 flex justify-center items-center ">
        
           {/* <button
             onClick={fetchWeather}
@@ -124,11 +129,12 @@ export default function WeatherApp() {
           </button> */}
           {error && <div className="text-red-500 absolute top-16">{error}</div>}
           {weather && (
-            <div className="bg-night bg-opacity-75 h-city w-city flex justify-center items-center rounded-xl relative">
-              <div className="text-white bg-custom-gradient bg-clip-text text-transparent absolute font-bold text-city top-cityTop left-cityLeft">
+            <div className="bg-night bg-opacity-75 h-city w-city flex justify-center items-center relative rounded-[48px]">
+              <div>setCurrentDate(getDate()) </div>
+              <div className="text-white font-manrope font-extrabold  bg-custom-gradient bg-clip-text text-transparent absolute text-city top-cityTop left-cityLeft">
                 {weather.name}
               </div>
-              <h1 className="text-9xl absolute font-bold bottom-temp left-10 bg-gradient-to-r from-slate-400 via-slate-800 to-slate-900 bg-clip-text text-transparent text-white">
+              <h1 className="font-manrope font-extrabold  text-[144px] absolute bottom-temp left-10 bg-gradient-to-r from-slate-400 via-slate-800 to-slate-900  bg-clip-text text-transparent text-white">
                 {Math.round(weather.main.temp)}°
               </h1>
               <div className="text-purple font-bold text-moods bottom-moodBottom left-moodLeft absolute">
@@ -137,6 +143,7 @@ export default function WeatherApp() {
               <img
                 className="absolute w-64 h-64 bottom-image-bottom"
                 src={getNightImage(weather.weather[0].main)}></img>
+                <img className="absolute w-[277px] h-[277px] bottom-image-bottom" src="nightShadow.png"></img>
             </div>
           )}
           

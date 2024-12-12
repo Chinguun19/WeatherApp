@@ -11,7 +11,8 @@
   "dependencies": {
     "next": "15.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "typeface-manrope": "^1.0.0"
   },
   "devDependencies": {
     "postcss": "^8",
