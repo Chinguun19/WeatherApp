@@ -47,6 +47,7 @@ export default {
       
       backgroundImage: {
          'custom-gradient': 'linear-gradient(180deg, #111827 0%, #6B7280 100%)',
+         subtract: "url('/public/Subtract.png')",
       },
 
       fontSize: {

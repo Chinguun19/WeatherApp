@@ -84,13 +84,16 @@ export default function WeatherApp() {
     <div className="w-full h-screen z-0 bg-black  overflow-x-hidden justify-center overflow-y-hidden flex">
       <div className="justify-center items-center flex">
         <div className=" bg-weather w-[800px] h-[1200px] top-40 left-36 z-10 flex justify-center items-center rounded-tr-[50px] rounded-tl-[50px] ">
-          <input
+          <div className="">
+            <img src="Vector.svg" className="absolute top-12 translate-x-3 z-50 ccolor- "></img>
+          <input 
             onChange={(e) => setCity(e.target.value)}
             value={city}
             onKeyDown={handleKeyDown}
             placeholder="Search"
-            className="absolute z-10 h-[80px] w-[567px] left-input Left top-7 rounded-3xl box-shadow: 0px 12px 24px 0px #0000000F font-xl text-black text-3xl focus:outline-none"
+            className="absolute z-10 h-[80px] w-[567px] left-input Left top-7 rounded-3xl box-shadow: 0px 12px 24px 0px #0000000F font-xl text-black text-[32px] focus:outline-none px-[50px] font-manrope font-[700] " 
           />
+          </div>
           {/* <button
             onClick={fetchWeather}
             className="absolute top-1 bg-blue-500 text-white px-4 py-2 rounded-lg"
@@ -101,7 +104,7 @@ export default function WeatherApp() {
           {weather && (
             <div className="bg-white bg-opacity-75 h-city w-city flex justify-center items-center rounded-[48px] relative backdrop-blur-3xl">
               <div> </div>
-              <div className="text-black font-manrope font-extrabold   bg-custom-gradient bg-clip-text text-transparent absolute text-[48px] top-cityTop left-cityLeft">
+              <div className="text-black font-manrope font-extrabold  bg-custom-gradient bg-clip-text text-transparent absolute text-[48px] top-cityTop left-cityLeft">
                 {weather.name}
               </div>
               <h1 className="font-manrope font-extrabold text-[144px] absolute  bottom-temp left-10 bg-gradient-to-r from-slate-400 via-slate-800 to-slate-900 bg-clip-text text-transparent text-black">
@@ -119,7 +122,7 @@ export default function WeatherApp() {
             </div>
           )}
         </div>
-        <div className="rounded-lg bg-nightColor h-night-1200 w-night-800 right-36 top-40 my-28 left-36 z-10 flex justify-center items-center ">
+        <div className="rounded-lg bg-night  h-night-1200 w-night-800 right-36 top-40 my-28 left-36 z-10 flex justify-center items-center ">
        
           {/* <button
             onClick={fetchWeather}
@@ -135,7 +138,7 @@ export default function WeatherApp() {
                 {weather.name}
               </div>
               <h1 className="font-manrope font-extrabold  text-[144px] absolute bottom-temp left-10 bg-gradient-to-r from-slate-400 via-slate-800 to-slate-900  bg-clip-text text-transparent text-white">
-                {Math.round(weather.main.temp)}°
+                {Math.round(weather.main.temp_min)}°
               </h1>
               <div className="text-purple font-bold text-moods bottom-moodBottom left-moodLeft absolute">
                 {weather.weather[0].main}
