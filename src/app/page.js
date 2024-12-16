@@ -4,32 +4,42 @@ import 'typeface-manrope';
 
 export default function WeatherApp() {
   const [city, setCity] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState("");
-  const [results, setResults] = useState([])
+
 
   const API_KEY = "9e8f5ac630a641fa986e0bd668216f13";
 
 
-  const fetchCityNames = (value) => {
-    fetch(`https://countriesnow.space/api/v0.1/countries`)
-      .then((response) => response.json())
-      .then((json) => {
-        const results = json.data.filter((country) => {
-          return (
-            value &&
-            country &&
-            country.cities &&
-            country.cities.some((city) => city.toLowerCase().includes(value.toLowerCase()))
-          );
-        });
-        setResults(results);
-      });
-  };
-  
 
-  fetchCityNames
-  console.log(results)
+  const fetchSuggestions = async (searchTerm) => {
+    if (!searchTerm) {
+      setSuggestions([]);
+      return;
+    }
+
+
+    setLoading(true);
+    const apiKey = "968b856cae9d4de381772529241312"
+    const url = `http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${encodeURIComponent(searchTerm)}`
+
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const cityNames = data.map((cities) => cities.name);
+      setSuggestions(cityNames);
+      console.log(suggestions)
+      } catch (error) {
+      console.error("Error fetching suggestions:", error);
+      } finally {
+      setLoading(false)
+      }
+
+
+  };
 
 
 
@@ -114,6 +124,12 @@ export default function WeatherApp() {
 
   };
 
+  const handleInputChange = (event) => {
+    setCity(event.target.value);
+    fetchSuggestions(event.target.value);
+    };
+
+
   return (
     <div className="w-full h-screen z-0 bg-gray-800  overflow-x-hidden justify-center overflow-y-hidden flex">
       <div className="justify-center items-center flex">
@@ -121,29 +137,36 @@ export default function WeatherApp() {
           <div className="">
             <img src="Vector.svg" className="absolute top-12 translate-x-3 z-50 ccolor- "></img>
           <input 
-             onChange={(e) => {
-              setCity(e.target.value);
-              fetchCityNames(e.target.value);
-            }}
+              onChange={handleInputChange}
+            //  onChange={(e) => {
+            //   setCity(e.target.value);
+            //   fetchSuggestions(e.target.value);
+            // }}
             value={city}
             onKeyDown={handleKeyDown}
             placeholder="Search"
             
             className="absolute z-10 h-[80px] w-[567px] left-input Left top-7 rounded-3xl box-shadow: 0px 12px 24px 0px #0000000F font-xl text-black text-[32px] focus:outline-none px-[50px] font-manrope font-[700] " 
           />
-         {results.slice(1, 4).map((country, index) => (
-  <div key={index}>
-    {country.cities.map((city, i) => (
-      <div key={i}>{city}</div>
-    ))}
-  </div>
-))}
+          <ul className="absolute top-[120px] z-[100] bg-white  text-wrap  h-m-[200px] w-m-[500px] backdrop-blur-[64] rounded-[24px]">
 
+          {suggestions.slice(0,3).map((city,index) => (
+          <li
+          key={index}
+          className="font-manrope text-[28px] text-black font-extrabold mt-3 px-[24px]"
+          onClick={() => {
+          setCity(city);
+          setSuggestions([]);
+    
+          }}
+          >
+          {city}
+          </li>
+          ))}
+          </ul>
+          </div>          
 
-
-          </div>
-
-          {/* <button
+          {/* <button`
             onClick={fetchWeather}
             className="absolute top-1 bg-blue-500 text-white px-4 py-2 rounded-lg"
           >
