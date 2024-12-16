@@ -149,7 +149,7 @@ export default function WeatherApp() {
             className="absolute z-10 h-[80px] w-[567px] left-input Left top-7 rounded-3xl box-shadow: 0px 12px 24px 0px #0000000F font-xl text-black text-[32px] focus:outline-none px-[50px] font-manrope font-[700] " 
           />
           <ul className="absolute top-[120px] z-[100] bg-white  text-wrap  h-m-[200px] w-m-[500px] backdrop-blur-[64] rounded-[24px]">
-
+            
           {suggestions.slice(0,3).map((city,index) => (
           <li
           key={index}
@@ -163,7 +163,9 @@ export default function WeatherApp() {
           {city}
           </li>
           ))}
+
           </ul>
+
           </div>          
 
           {/* <button`
