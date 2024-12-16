@@ -23,7 +23,7 @@ export default function WeatherApp() {
 
     setLoading(true);
     const apiKey = "968b856cae9d4de381772529241312"
-    const url = `http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${encodeURIComponent(searchTerm)}`
+    const url = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${encodeURIComponent(searchTerm)}`
 
 
     try {
