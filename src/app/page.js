@@ -87,9 +87,9 @@ export default function WeatherApp() {
       case "Rain":
         return "Rain.png"; 
       case "Snow":
-        return "snow.png"; 
+        return "Snow.png"; 
       case "Thunderstorm":
-        return "thunderstorm.png"; 
+        return "ThunderStorm.png"; 
       case "Drizzle":
         return "Rain.png"; 
     }
@@ -105,9 +105,9 @@ export default function WeatherApp() {
       case "Rain":
         return "NightRain.png"; 
       case "Snow":
-        return "Nightsnow.png"; 
+        return "NightSnow.png"; 
       case "Thunderstorm":
-        return "Nightthunderstorm.png"; 
+        return "NightThunderstorm.png"; 
       case "Drizzle":
         return "NightRain.png"; 
     }
