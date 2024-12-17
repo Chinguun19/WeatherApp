@@ -92,8 +92,6 @@ export default function WeatherApp() {
         return "thunderstorm.png"; 
       case "Drizzle":
         return "Rain.png"; 
-      default:
-        return "Sun.png"; 
     }
   };
 
@@ -112,8 +110,6 @@ export default function WeatherApp() {
         return "Nightthunderstorm.png"; 
       case "Drizzle":
         return "NightRain.png"; 
-      default:
-        return "Nightsun.png"; 
     }
   };
 
