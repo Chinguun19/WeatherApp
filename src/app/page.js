@@ -99,7 +99,7 @@ export default function WeatherApp() {
   const getNightImage = (weatherCondition) => {
     switch ( weatherCondition) {
       case "Clear":
-        return "Nightsun.png"; 
+        return "NightSun.png"; 
       case "Clouds":
         return "NightCloud.png"; 
       case "Rain":
