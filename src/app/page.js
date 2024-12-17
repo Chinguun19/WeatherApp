@@ -81,7 +81,7 @@ export default function WeatherApp() {
   const getWeatherImage = (weatherCondition) => {
     switch ( weatherCondition) {
       case "Clear":
-        return "sun.png"; 
+        return "Sun.png" 
       case "Clouds":
         return "Clouds.png"; 
       case "Rain":
@@ -93,7 +93,7 @@ export default function WeatherApp() {
       case "Drizzle":
         return "Rain.png"; 
       default:
-        return "sun.png"; 
+        return "Sun.png"; 
     }
   };
 
